@@ -25,6 +25,31 @@ void _bubbleSort(node *list) {
 	}
 }
 
+void _selectionSort(node *list) {
+	node *min;
+	int tmp;
+
+	for (node *pos = list; pos != NULL; pos = pos->next) {
+
+		min = pos;
+
+		for (node *cur = pos->next; cur != NULL; cur = cur->next) {
+			if (cur->data < min->data) {
+				min = cur;
+			}
+		}
+
+		if (pos != min) {
+			tmp = pos->data;
+			pos->data = min->data;
+			min->data = tmp;
+		}
+	}
+}
+
+void _insertionSort(node *list) {
+}
+
 Sorter::Sorter(char *type) {
 	this->type = type;
 }
@@ -32,6 +57,8 @@ Sorter::Sorter(char *type) {
 void Sorter::sort(node *list) {
 	if (strcmp(this->type, "bubble") == 0) {
 		_bubbleSort(list);
+	} else if (strcmp(this->type, "selection") == 0) {
+		_selectionSort(list);
 	}
 }
 
