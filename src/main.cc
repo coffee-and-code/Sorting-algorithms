@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "list.hh"
 #include "sorter.hh"
 
 void usage() {
@@ -10,23 +11,22 @@ void usage() {
 }
 
 int main(int argc, char *argv[]) {
-	int n;
-	char *algorithm;
-
 	if (argc < 3) {
 		usage();
 		exit(1);
 	}
 
-	n = (int)argv[1];
-	algorithm = argv[2];
+	int n = atoi(argv[1]);
+	char *algorithm = argv[2];
 
-	if (strcmp(algorithm, "bubble") == 0) {
-		printf("selected algorithm: bubble sort\n");
-	} else {
-		printf("unknown sorting algorithm: %s\n", algorithm);
-		exit(1);
-	}
-
+	List *list = new List(n);
 	Sorter *sorter = new Sorter(algorithm);
+
+	printf("before:\n");
+	list->print();
+
+	sorter->sort(list->get());
+
+	printf("\nafter:\n");
+	list->print();
 }

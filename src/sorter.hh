@@ -1,10 +1,12 @@
 #ifndef SORTER_HH
 #define SORTER_HH
 
+#include "node.hh"
+
 class Sorter {
 public:
 	Sorter(char *type);
-	int sort();
+	void sort(node *list);
 	~Sorter();
 private:
 	char *type;

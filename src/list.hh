@@ -1,14 +1,16 @@
 #ifndef LIST_HH
 #define LIST_HH
 
+#include "node.hh"
+
 class List {
 public:
 	List(int n);
-	int *get();
+	node *get();
+	void print();
 	~List();
 private:
-	int n;
-	int *list;
+	node *list;
 };
 
 #endif
