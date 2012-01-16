@@ -1,8 +1,8 @@
 CC = g++
-CFLAGS = -Wall -c
+CFLAGS = -Wall -c -g
 LDFLAGS = 
 SRC = ./src
-SOURCES = $(SRC)/sorter.cc $(SRC)/main.cc
+SOURCES = $(SRC)/list.cc $(SRC)/sorter.cc $(SRC)/main.cc
 OBJECTS = $(SOURCES:.cc=.o)
 BIN = sorter
 
